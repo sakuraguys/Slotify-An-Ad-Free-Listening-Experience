@@ -1,8 +1,6 @@
 name: Build Slotify APK
 
 on:
-  push:
-    branches: [ "main" ]
   workflow_dispatch:
 
 jobs:
@@ -29,6 +27,21 @@ jobs:
       - name: Create Android platform files if missing
         run: flutter create . --platforms=android
 
+      - name: Set Android NDK version
+        run: |
+          python3 -c '
+          from pathlib import Path
+          p = Path("android/app/build.gradle.kts")
+          text = p.read_text(encoding="utf-8")
+          if "ndkVersion" not in text:
+              text = text.replace(
+                  "android {",
+                  "android {\n    ndkVersion = \"27.0.12077973\"",
+                  1
+              )
+              p.write_text(text, encoding="utf-8")
+          '
+
       - name: Install dependencies
         run: flutter pub get
 
@@ -40,4 +53,4 @@ jobs:
         with:
           name: slotify-android-apk
           path: build/app/outputs/flutter-apk/app-release.apk
-          
+          w
