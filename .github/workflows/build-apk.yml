@@ -48,4 +48,4 @@ jobs:
         with:
           name: slotify-android-apk
           path: build/app/outputs/flutter-apk/app-release.apk
-          s
+          
