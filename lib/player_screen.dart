@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../models/app_settings.dart';
-import '../widgets/liquid_glass_card.dart';
-import '../widgets/lyrics_panel.dart';
+import 'app_settings.dart';
+import 'liquid_glass_card.dart';
+import 'lyrics_panel.dart';
 
 class PlayerScreen extends StatefulWidget {
   final AppSettings settings;
@@ -154,3 +154,4 @@ class _PlayerScreenState extends State<PlayerScreen> {
     );
   }
 }
+a
