@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../models/app_settings.dart';
-import '../widgets/liquid_glass_card.dart';
+import 'app_settings.dart';
+import 'liquid_glass_card.dart';
 import 'player_screen.dart';
 import 'settings_screen.dart';
 
