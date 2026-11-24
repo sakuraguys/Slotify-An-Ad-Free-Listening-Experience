@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'models/app_settings.dart';
-import 'screens/home_screen.dart';
+import 'app_settings.dart';
+import 'home_screen.dart';
 
 void main() {
   runApp(const SlotifyApp());
