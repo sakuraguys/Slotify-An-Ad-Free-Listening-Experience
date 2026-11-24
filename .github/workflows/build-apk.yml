@@ -29,18 +29,11 @@ jobs:
 
       - name: Set Android NDK version
         run: |
-          python3 -c '
-          from pathlib import Path
-          p = Path("android/app/build.gradle.kts")
-          text = p.read_text(encoding="utf-8")
-          if "ndkVersion" not in text:
-              text = text.replace(
-                  "android {",
-                  "android {\n    ndkVersion = \"27.0.12077973\"",
-                  1
-              )
-              p.write_text(text, encoding="utf-8")
-          '
+          ndk='27.0.12077973'
+          gradle_file="android/app/build.gradle.kts"
+          if [ -f "$gradle_file" ] && ! grep -q "ndkVersion" "$gradle_file"; then
+            sed -i "s/android {/android {\n    ndkVersion = \"$ndk\"/" "$gradle_file"
+          fi
 
       - name: Install dependencies
         run: flutter pub get
@@ -53,4 +46,4 @@ jobs:
         with:
           name: slotify-android-apk
           path: build/app/outputs/flutter-apk/app-release.apk
-          w
+          
