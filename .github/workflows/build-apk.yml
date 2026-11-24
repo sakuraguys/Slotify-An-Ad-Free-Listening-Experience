@@ -1,6 +1,8 @@
 name: Build Slotify APK
 
 on:
+  push:
+    branches: [ "main" ]
   workflow_dispatch:
 
 jobs:
@@ -46,3 +48,4 @@ jobs:
         with:
           name: slotify-android-apk
           path: build/app/outputs/flutter-apk/app-release.apk
+          s
