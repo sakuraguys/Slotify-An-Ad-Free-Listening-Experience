@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../models/app_settings.dart';
-import '../widgets/liquid_glass_card.dart';
+import 'app_settings.dart';
+import 'liquid_glass_card.dart';
 
 class SettingsScreen extends StatefulWidget {
   final AppSettings settings;
